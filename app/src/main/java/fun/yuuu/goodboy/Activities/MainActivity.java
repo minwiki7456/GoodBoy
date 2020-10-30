@@ -1,10 +1,11 @@
-package fun.yuuu.goodboy;
+package fun.yuuu.goodboy.Activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -16,6 +17,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import fun.yuuu.goodboy.R;
+import fun.yuuu.goodboy.Utils.DatabaseHelper;
 
 public class MainActivity extends AppCompatActivity {
     private final String TAG = "MainActivity";
