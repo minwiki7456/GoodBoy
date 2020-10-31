@@ -49,7 +49,7 @@ public class MainActivity2 extends AppCompatActivity {
                 values.put("t_start_time",new SimpleDateFormat("HH:mm:ss").format(new Date()));
                 values.put("t_end_time","");
                 mSQLiteDatabase.insert("clock_in_work",null,values);
-                mtextViewWorkTimeInfo.setText(Html.fromHtml(getAllInfo()+"<br/><font color=\"#33FF00\">[START TIME UPDATE SUCCESSFUL!]</font>"));
+                mtextViewWorkTimeInfo.setText(Html.fromHtml(getAllInfo()+"<br/><font color=\"#33FF00\">[Start time update successfully !]</font>"));
 
             }
         });
@@ -60,7 +60,7 @@ public class MainActivity2 extends AppCompatActivity {
                 String currenTime = new SimpleDateFormat("HH:mm:ss").format(new Date());
                 values.put("t_end_time",currenTime);
                 mSQLiteDatabase.update("clock_in_work",values,"t_date=?",new String[]{mSimpleDateFormat.format(new Date())});
-                mtextViewWorkTimeInfo.setText(Html.fromHtml(getAllInfo()+"<br/><font color=\"#33FF00\">[END TIME UPDATE SUCCESSFUL!]</font>"));
+                mtextViewWorkTimeInfo.setText(Html.fromHtml(getAllInfo()+"<br/><font color=\"#33FF00\">[End time update successfully !]</font>"));
             }
         });
         btnDeleteAll.setOnClickListener(new View.OnClickListener() {
@@ -69,11 +69,11 @@ public class MainActivity2 extends AppCompatActivity {
                 String notifyString = null;
                 if(deleteFlag<9){
                     deleteFlag++;
-                    mtextViewWorkTimeInfo.setText(Html.fromHtml(getAllInfo()+"<br/><font color=\"#FF0000\">[YOU WILL DELETE ALL DATA !!!]<br/>[IF YOU WANT DO IT , PLEASE CLICK </font><font color=\"#33FF00\">"+(10-deleteFlag)+"</font><font color=\"#FF0000\"> TIMES!!]</font>"));
+                    mtextViewWorkTimeInfo.setText(Html.fromHtml(getAllInfo()+"<br/><font color=\"#FF0000\">[You will delete all data !!!!]<br/>[If you want do it ,Please click </font><font color=\"#33FF00\">"+(10-deleteFlag)+"</font><font color=\"#FF0000\"> times!!]</font>"));
                     return;
                 }
                 mSQLiteDatabase.execSQL("delete from clock_in_work");
-                mtextViewWorkTimeInfo.setText(Html.fromHtml("<font color=\"#33FF00\">[DELETE ALL DATA SUCCESSFUL!]</font>"));
+                mtextViewWorkTimeInfo.setText(Html.fromHtml("<font color=\"#33FF00\">[Delete all data successfully !]</font>"));
                 deleteFlag = 0;
             }
         });
